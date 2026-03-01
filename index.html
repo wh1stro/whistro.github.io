@@ -9,10 +9,10 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       height: 100vh;
-      background: radial-gradient(ellipse at bottom, #0b001f 0%, #000 100%);
+      background: #000000; /* deep black space */
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      color: white;
+      color: #e0e0e0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -26,110 +26,97 @@
     }
     .star {
       position: absolute;
-      background: white;
+      background: #ffffff;
       border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 3s infinite alternate;
+      opacity: 0.7;
+      animation: twinkle 4s infinite alternate;
     }
     @keyframes twinkle {
-      0% { opacity: 0.4; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1.2); }
+      0% { opacity: 0.3; transform: scale(0.7); }
+      100% { opacity: 0.9; transform: scale(1.1); }
     }
 
-    
     .card {
       position: relative;
-      width: 320px;
-      padding: 2rem 1.5rem;
-      background: rgba(20, 20, 50, 0.6);
-      border-radius: 1.5rem;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      width: 340px;
+      padding: 2.5rem 2rem;
+      background: rgba(15, 15, 25, 0.75);
+      border-radius: 28px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(100, 100, 120, 0.3);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
       text-align: center;
       z-index: 10;
-      overflow: hidden;
     }
 
     .pfp-container {
       position: relative;
-      margin: 0 auto 1rem;
-      width: 120px;
-      height: 120px;
+      margin: 0 auto 1.5rem;
+      width: 130px;
+      height: 130px;
     }
     .pfp {
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid rgba(100, 200, 255, 0.8);
-      box-shadow: 0 0 20px rgba(100, 200, 255, 0.6);
+      border: 4px solid rgba(180, 180, 255, 0.4);
+      box-shadow: 0 0 25px rgba(140, 140, 255, 0.5);
     }
 
     .name {
-      font-size: 2.2rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #a78bfa, #7dd3fc);
+      font-size: 2.4rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #c4b5fd, #a5b4fc, #c084fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px rgba(167,139,250,0.5);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(165, 180, 252, 0.6);
+      letter-spacing: 1px;
     }
 
-    .status-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: rgba(0,0,0,0.4);
-      padding: 0.6rem 1.2rem;
-      border-radius: 2rem;
-      margin: 1rem 0;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    .status-dot {
-      width: 12px;
-      height: 12px;
-      background: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #22c55e;
-    }
-    .status-text {
-      font-size: 1rem;
-      opacity: 0.9;
+    .bio {
+      opacity: 0.85;
+      font-size: 1.1rem;
+      margin: 1.2rem 0;
+      line-height: 1.5;
     }
 
+    /* Social icons - always shiny/glowing */
     .icons {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 2.5rem;
+      margin-top: 1.8rem;
     }
     .icon-link {
-      font-size: 1.8rem;
-      color: rgba(255,255,255,0.7);
-      transition: all 0.3s;
+      font-size: 2.2rem;
+      color: #d1d5db;
+      text-shadow: 
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 20px rgba(165, 180, 252, 0.8),
+        0 0 30px rgba(165, 180, 252, 0.5);
+      transition: transform 0.3s;
     }
     .icon-link:hover {
-      color: white;
       transform: scale(1.2);
-      text-shadow: 0 0 15px white;
     }
 
-    
+    /* Shooting stars */
     .shooting-star {
       position: absolute;
-      width: 2px;
-      height: 60px;
-      background: linear-gradient(transparent, white, transparent);
+      width: 3px;
+      height: 80px;
+      background: linear-gradient(transparent, rgba(255,255,255,0.8), transparent);
       opacity: 0;
-      animation: shoot 8s infinite;
-      transform: rotate(45deg);
+      animation: shoot 10s infinite linear;
+      transform: rotate(30deg);
     }
     @keyframes shoot {
-      0% { transform: translateX(-100vw) translateY(-100vh) rotate(45deg); opacity: 0; }
-      10% { opacity: 0.8; }
-      30% { opacity: 0; }
-      100% { transform: translateX(100vw) translateY(100vh) rotate(45deg); opacity: 0; }
+      0% { transform: translateX(-150vw) translateY(-150vh) rotate(30deg); opacity: 0; }
+      5% { opacity: 0.9; }
+      20% { opacity: 0; }
+      100% { transform: translateX(150vw) translateY(150vh) rotate(30deg); opacity: 0; }
     }
   </style>
 </head>
@@ -138,43 +125,33 @@
 
   <div class="card">
     <div class="pfp-container">
-      
-      <img class="pfp" src="" alt="pfp" />
+      <img class="pfp" src="https://example.com/your-pfp.png" alt="whistro" />
     </div>
 
     <div class="name">whistro</div>
 
-    <div class="status-box">
-      <div class="status-dot"></div>
-      <span class="status-text">sleeping</span>
-    </div>
-
-    
-    <p style="opacity:0.8; margin:1rem 0; font-size:1.1rem;">
-      I make things      
-    </p>
+    <div class="bio">sleeping</div>
 
     <div class="icons">
-      <a href="https://www.youtube.com/@lovetowhis" class="icon-link"><i class="fab fa-youtube"></i></a>
-      <a href="https://in.pinterest.com/whistro/" class="icon-link"><i class="fab fa-pinterest"></i></a>
-      <a href="https://open.spotify.com/user/31qnp25zsexa4eghdzdqfcvyqcqm" class="icon-link"><i class="fab fa-spotify"></i></a>
+      <a href="https://www.youtube.com/@lovetowhis" class="icon-link" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://in.pinterest.com/whistro/" class="icon-link" target="_blank"><i class="fab fa-pinterest"></i></a>
+      <a href="https://open.spotify.com/user/31qnp25zsexa4eghdzdqfcvyqcqm" class="icon-link" target="_blank"><i class="fab fa-spotify"></i></a>
     </div>
   </div>
 
- 
-  <div class="shooting-star" style="top:10%; left:-10%; animation-delay:0s;"></div>
-  <div class="shooting-star" style="top:40%; left:-20%; animation-delay:3s;"></div>
+  <div class="shooting-star" style="top:15%; left:-20%; animation-delay:0s;"></div>
+  <div class="shooting-star" style="top:45%; left:-30%; animation-delay:4s;"></div>
+  <div class="shooting-star" style="top:70%; left:-10%; animation-delay:7s;"></div>
 
   <script>
-    =
     const starsContainer = document.getElementById('stars');
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 120; i++) {
       const star = document.createElement('div');
       star.className = 'star';
-      star.style.width = star.style.height = Math.random() * 3 + 'px';
+      star.style.width = star.style.height = Math.random() * 2.5 + 'px';
       star.style.top = Math.random() * 100 + '%';
       star.style.left = Math.random() * 100 + '%';
-      star.style.animationDelay = Math.random() * 5 + 's';
+      star.style.animationDelay = Math.random() * 6 + 's';
       starsContainer.appendChild(star);
     }
   </script>
