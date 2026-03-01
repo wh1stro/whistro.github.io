@@ -10,20 +10,21 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      height: 100vh;
+      min-height: 100vh;
       background: #000000;
-      overflow: hidden;
+      overflow-x: hidden;
       font-family: 'Segoe UI', sans-serif;
       color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 1rem;
     }
     .stars {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: transparent;
+      position: fixed;
+      inset: 0;
       pointer-events: none;
+      z-index: 1;
     }
     .star {
       position: absolute;
@@ -39,23 +40,20 @@
     .card {
       position: relative;
       width: 580px;
-      height: 220px;
-      padding: 1.8rem 2.5rem;
+      max-width: 100%;
+      padding: 2rem;
       background: #0a0a0a;
       border-radius: 16px;
       border: 1px solid #222222;
       box-shadow: 0 10px 50px #000000;
-      text-align: center;
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-    .left {
-      flex: 0 0 auto;
+      gap: 2.5rem;
+      transition: all 0.4s ease;
     }
     .pfp-container {
+      flex-shrink: 0;
       width: 140px;
       height: 140px;
     }
@@ -64,29 +62,21 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #333333;
+      border: 1.1rem solid #333333;
       box-shadow: 0 0 30px #111111;
-    }
-    .right {
-      flex: 1;
-      text-align: left;
     }
     .name {
       font-size: 2.8rem;
       font-weight: 900;
       color: #ffffff;
-      margin-bottom: 0.8rem;
       text-shadow: 0 0 20px rgba(255,255,255,0.4);
-    }
-    .bio {
-      color: #dddddd;
-      font-size: 1.4rem;
-      line-height: 1.4;
+      text-align: center;
     }
     .icons {
       display: flex;
-      gap: 1.1rem;
-      margin-top: 1.2rem;
+      gap: 1.8rem;
+      margin-top: 1.8rem;
+      justify-content: center;
     }
     .icon-link {
       font-size: 2.4rem;
@@ -101,19 +91,62 @@
       transform: scale(1.25);
     }
     .shooting-star {
-      position: absolute;
+      position: fixed;
       width: 3px;
       height: 90px;
       background: linear-gradient(transparent, rgba(255,255,255,0.8), transparent);
       opacity: 0;
       animation: shoot 12s infinite linear;
       transform: rotate(35deg);
+      z-index: 1;
     }
     @keyframes shoot {
-      0% { transform: translateX(-150vw) translateY(-150vh) rotate(35deg); opacity: 0; }
-      5% { opacity: 0.9; }
-      25% { opacity: 0; }
+      0%   { transform: translateX(-150vw) translateY(-150vh) rotate(35deg); opacity: 0; }
+      5%   { opacity: 0.9; }
+      25%  { opacity: 0; }
       100% { transform: translateX(150vw) translateY(150vh) rotate(35deg); opacity: 0; }
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 1rem 0.5rem;
+        align-items: flex-start;
+      }
+      .card {
+        flex-direction: column;
+        width: 92%;
+        padding: 2rem 1.6rem;
+        gap: 1.8rem;
+        border-radius: 20px;
+      }
+      .pfp-container {
+        width: 110px;
+        height: 110px;
+      }
+      .name {
+        font-size: 2.4rem;
+      }
+      .icons {
+        gap: 1.6rem;
+      }
+      .icon-link {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .card {
+        padding: 1.8rem 1.2rem;
+      }
+      .name {
+        font-size: 2.1rem;
+      }
+      .icons {
+        gap: 1.3rem;
+      }
+      .icon-link {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -121,22 +154,17 @@
   <div class="stars" id="stars"></div>
 
   <div class="card">
-    <div class="left">
-      <div class="pfp-container">
-        <img class="pfp" src="/pfp.webp" alt="whistro" />
-      </div>
+    <div class="pfp-container">
+      <img class="pfp" src="/pfp.webp" alt="whistro" />
     </div>
 
-    <div class="right">
-      <div class="name">whistro</div>
-      <div class="bio"></div>
+    <div class="name">whistro</div>
 
-      <div class="icons">
-        <a href="https://www.youtube.com/@lovetowhis" class="icon-link" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://in.pinterest.com/whistro/" class="icon-link" target="_blank"><i class="fab fa-pinterest"></i></a>
-        <a href="https://open.spotify.com/user/31qnp25zsexa4eghdzdqfcvyqcqm" class="icon-link" target="_blank"><i class="fab fa-spotify"></i></a>
-        <a href="https://github.com/wh1stro" class="icon-link" target="_blank"><i class="fab fa-github"></i></a>
-      </div>
+    <div class="icons">
+      <a href="https://www.youtube.com/@lovetowhis" class="icon-link" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://in.pinterest.com/whistro/" class="icon-link" target="_blank"><i class="fab fa-pinterest"></i></a>
+      <a href="https://open.spotify.com/user/31qnp25zsexa4eghdzdqfcvyqcqm" class="icon-link" target="_blank"><i class="fab fa-spotify"></i></a>
+      <a href="https://github.com/wh1stro" class="icon-link" target="_blank"><i class="fab fa-github"></i></a>
     </div>
   </div>
 
@@ -146,7 +174,7 @@
 
   <script>
     const starsContainer = document.getElementById('stars');
-    for (let i = 0; i < 140; i++) {
+    for (let i = 0; i < 120; i++) {
       const star = document.createElement('div');
       star.className = 'star';
       star.style.width = star.style.height = Math.random() * 3 + 'px';
