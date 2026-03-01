@@ -9,15 +9,14 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       height: 100vh;
-      background: #000000; /* deep black space */
+      background: #000000;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      color: #e0e0e0;
+      color: #f0f0f0;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
     .stars {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -28,27 +27,25 @@
       position: absolute;
       background: #ffffff;
       border-radius: 50%;
-      opacity: 0.7;
-      animation: twinkle 4s infinite alternate;
+      opacity: 0.65;
+      animation: twinkle 5s infinite alternate;
     }
     @keyframes twinkle {
-      0% { opacity: 0.3; transform: scale(0.7); }
-      100% { opacity: 0.9; transform: scale(1.1); }
+      0% { opacity: 0.3; transform: scale(0.6); }
+      100% { opacity: 0.85; transform: scale(1.15); }
     }
-
     .card {
       position: relative;
       width: 340px;
       padding: 2.5rem 2rem;
-      background: rgba(15, 15, 25, 0.75);
+      background: rgba(10, 10, 15, 0.85);
       border-radius: 28px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(100, 100, 120, 0.3);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(80, 80, 90, 0.35);
+      box-shadow: 0 10px 50px rgba(0,0,0,0.9);
       text-align: center;
       z-index: 10;
     }
-
     .pfp-container {
       position: relative;
       margin: 0 auto 1.5rem;
@@ -60,63 +57,55 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid rgba(180, 180, 255, 0.4);
-      box-shadow: 0 0 25px rgba(140, 140, 255, 0.5);
+      border: 4px solid rgba(200, 200, 220, 0.3);
+      box-shadow: 0 0 30px rgba(220, 220, 255, 0.25);
     }
-
     .name {
-      font-size: 2.4rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #c4b5fd, #a5b4fc, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #ffffff;
       margin-bottom: 1rem;
-      text-shadow: 0 0 15px rgba(165, 180, 252, 0.6);
-      letter-spacing: 1px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.5);
+      letter-spacing: 1.5px;
     }
-
     .bio {
-      opacity: 0.85;
+      color: #cccccc;
       font-size: 1.1rem;
       margin: 1.2rem 0;
-      line-height: 1.5;
+      line-height: 1.6;
     }
-
-    /* Social icons - always shiny/glowing */
     .icons {
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
-      margin-top: 1.8rem;
+      gap: 2.8rem;
+      margin-top: 2rem;
     }
     .icon-link {
-      font-size: 2.2rem;
-      color: #d1d5db;
+      font-size: 2.3rem;
+      color: #e0e0e0;
       text-shadow: 
-        0 0 10px rgba(255,255,255,0.6),
-        0 0 20px rgba(165, 180, 252, 0.8),
-        0 0 30px rgba(165, 180, 252, 0.5);
+        0 0 12px rgba(255,255,255,0.7),
+        0 0 24px rgba(255,255,255,0.5),
+        0 0 36px rgba(255,255,255,0.3);
       transition: transform 0.3s;
     }
     .icon-link:hover {
-      transform: scale(1.2);
+      transform: scale(1.25);
     }
-
-    /* Shooting stars */
     .shooting-star {
       position: absolute;
       width: 3px;
-      height: 80px;
-      background: linear-gradient(transparent, rgba(255,255,255,0.8), transparent);
+      height: 90px;
+      background: linear-gradient(transparent, rgba(255,255,255,0.9), transparent);
       opacity: 0;
-      animation: shoot 10s infinite linear;
-      transform: rotate(30deg);
+      animation: shoot 12s infinite linear;
+      transform: rotate(35deg);
     }
     @keyframes shoot {
-      0% { transform: translateX(-150vw) translateY(-150vh) rotate(30deg); opacity: 0; }
-      5% { opacity: 0.9; }
-      20% { opacity: 0; }
-      100% { transform: translateX(150vw) translateY(150vh) rotate(30deg); opacity: 0; }
+      0% { transform: translateX(-150vw) translateY(-150vh) rotate(35deg); opacity: 0; }
+      5% { opacity: 1; }
+      25% { opacity: 0; }
+      100% { transform: translateX(150vw) translateY(150vh) rotate(35deg); opacity: 0; }
     }
   </style>
 </head>
@@ -130,7 +119,10 @@
 
     <div class="name">whistro</div>
 
-    <div class="bio">sleeping</div>
+    <div class="bio">
+      Delhi nights • Minecraft modder • always sleeping 🌙<br>
+      TNT revenge & pure chaos 💥
+    </div>
 
     <div class="icons">
       <a href="https://www.youtube.com/@lovetowhis" class="icon-link" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -140,19 +132,19 @@
     </div>
   </div>
 
-  <div class="shooting-star" style="top:15%; left:-20%; animation-delay:0s;"></div>
-  <div class="shooting-star" style="top:45%; left:-30%; animation-delay:4s;"></div>
-  <div class="shooting-star" style="top:70%; left:-10%; animation-delay:7s;"></div>
+  <div class="shooting-star" style="top:10%; left:-25%; animation-delay:0s;"></div>
+  <div class="shooting-star" style="top:35%; left:-15%; animation-delay:3s;"></div>
+  <div class="shooting-star" style="top:65%; left:-30%; animation-delay:6s;"></div>
 
   <script>
     const starsContainer = document.getElementById('stars');
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 140; i++) {
       const star = document.createElement('div');
       star.className = 'star';
-      star.style.width = star.style.height = Math.random() * 2.5 + 'px';
+      star.style.width = star.style.height = Math.random() * 3 + 'px';
       star.style.top = Math.random() * 100 + '%';
       star.style.left = Math.random() * 100 + '%';
-      star.style.animationDelay = Math.random() * 6 + 's';
+      star.style.animationDelay = Math.random() * 8 + 's';
       starsContainer.appendChild(star);
     }
   </script>
